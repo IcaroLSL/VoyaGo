@@ -12,8 +12,7 @@ Tecnologias
 - Java 17+
 - Spring Boot
 - Spring Web, Spring Data JPA
-- PostgreSQL (produção) e H2 (perfil `dev` para desenvolvimento/testes)
-- Flyway (opcional) para migrations
+- PostgreSQL (para os usuarios) e SqlServer (dados)
 - Maven (ou Gradle se preferir)
 
 Configuração (variáveis de ambiente)
