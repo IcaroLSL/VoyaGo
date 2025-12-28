@@ -11,11 +11,11 @@ updated: 2024-12-28
 
 # BR001: Duração Mínima de Permanência em Destino
 
-## 📌 Regra de Negócio
+## Regra de Negócio
 
 Todo destino no roteiro deve ter uma permanência mínima baseada no tipo de destino para garantir experiência de qualidade ao viajante.
 
-## 🎯 Especificação BDD
+## Especificação BDD
 
 ### Feature: Validação de duração mínima em destino
 
@@ -61,7 +61,7 @@ Todo destino no roteiro deve ter uma permanência mínima baseada no tipo de des
 | HISTORICO    | 1 dia          | 2 dias          | ✅ ACEITO         |
 | NATUREZA     | 2 dias         | 1 dia           | ❌ REJEITADO      |
 
-## 📐 Regras de Duração
+##  Regras de Duração
 
 ```
 CAPITAL:   mínimo 2 dias
@@ -71,7 +71,7 @@ NATUREZA:  mínimo 2 dias
 RURAL:     mínimo 2 dias
 ```
 
-## 🏗️ Implementação
+## Implementação
 
 ### Camada de Domínio (Hexagonal)
 - **Agregado**: `domain.roteiro.Roteiro`
@@ -91,7 +91,7 @@ domain/
     PermanenciaValidator.java # Validador
 ```
 
-## 🧪 Testes Relacionados
+## Testes Relacionados
 
 ```java
 // Mapeamento Cenário → Teste
@@ -110,12 +110,12 @@ DuracaoMinimaException
   - httpStatus: 400 (Bad Request)
 ```
 
-## 🔗 Relacionamentos
+##  Relacionamentos
 
 - **Depende de**: Nenhuma outra BR
 - **É usado por**: BR005 (Validação de roteiro completo)
 
-## 📝 Notas para IA
+##  Notas para IA
 
 ```
 Contexto: Sistema de planejamento de viagens
@@ -124,13 +124,13 @@ Abordagem: Validação no momento da adição do destino ao roteiro
 Falha: Retorna exceção de domínio que será tratada na camada de aplicação
 ```
 
-## 📚 Referências
+##  Referências
 
 - [Documentação expandida na Wiki](link-wiki)
 - [Issue #XX no GitHub Project](link-issue)
 - [Código fonte - Destino.java](link-codigo)
 
-## 🔄 Histórico
+##  Histórico
 
 | Data       | Versão | Alteração                    | Autor |
 |------------|--------|------------------------------|-------|
