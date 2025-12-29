@@ -1,7 +1,7 @@
 ---
 name: 'BUSINESS RULE Documentation Template '
 about: Template of BUSINESS RULE
-title: "# [BR001] Minimum Stay Duration per Destination"
+title: "[BR001] Minimum Stay Duration per Destination"
 labels: documentation
 assignees: IcaroLSL, Vittas
 

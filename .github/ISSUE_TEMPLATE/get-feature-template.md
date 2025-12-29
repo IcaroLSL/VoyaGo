@@ -23,6 +23,7 @@ assignees: IcaroLSL, Vittas
     SET FILTERS
 }
 ```
+>[!NOTE]
 > It should allow filtering of the OBJECT by:
 > - FIELD -> OBJECT
 >
