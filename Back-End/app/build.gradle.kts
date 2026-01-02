@@ -6,7 +6,9 @@
  */
 
 plugins {
-    // Apply the application plugin to add support for building a CLI application in Java.
+    id("org.springframework.boot") version "3.4.1"
+    id("io.spring.dependency-management") version "1.1.6"
+    // Keep application plugin so we can run the main class during development
     application
 }
 
@@ -16,16 +18,21 @@ repositories {
 }
 
 dependencies {
-    // Use JUnit Jupiter for testing.
-    testImplementation(libs.junit.jupiter)
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 
+    // Databases
+    runtimeOnly("com.h2database:h2")
+    runtimeOnly("org.postgresql:postgresql")
+
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    
+    // testImplementation(libs.junit.jupiter)
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-
-    // This dependency is used by the application.
-    implementation(libs.guava)
+    // implementation(libs.guava)
 }
 
-// Apply a specific Java toolchain to ease working on different environments.
+// Java toolchain
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(21)
@@ -33,11 +40,10 @@ java {
 }
 
 application {
-    // Define the main class for the application.
-    mainClass = "com.voyago.Voyago"
+    // Define the Spring Boot main class
+    mainClass.set("com.voyago.Voyago")
 }
 
-tasks.named<Test>("test") {
-    // Use JUnit Platform for unit tests.
+tasks.withType<Test> {
     useJUnitPlatform()
 }
