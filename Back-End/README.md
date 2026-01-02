@@ -1,21 +1,22 @@
 # VoyaGo — Back-End
 
-Visão geral
+
+## Visão geral
 -----------
 O back-end do VoyaGo é responsável por:
 - Autenticação de usuários (registro/login).
 - Armazenamento de lugares (places) e roteiros (itineraries).
 - Gerar roteiros a partir de parâmetros (destinos, datas, preferências).
 
-Tecnologias
+## Tecnologias
 -----------
-- Java 17+
+- Java 21+
 - Spring Boot
-- Spring Web, Spring Data JPA
+<!-- - Spring Web, Spring Data JPA -->
 - PostgreSQL (para os usuarios) e SqlServer (dados)
-- Maven (ou Gradle se preferir)
+- Gradle)
 
-Configuração (variáveis de ambiente)
+## Configuração (variáveis de ambiente)
 ----------------------------------
 - `SPRING_DATASOURCE_URL` — URL JDBC do banco (ex: `jdbc:postgresql://localhost:5432/voyago`)
 - `SPRING_DATASOURCE_USERNAME` — usuário do DB
@@ -26,18 +27,19 @@ Execução em desenvolvimento
 ---------------------------
 Assumindo Maven:
 
-1. Entre na pasta `Back-End/`.
+1. Instale o java 21 e o gradlew:
+```bash
+sudo pacman -S gradle jdk21-openjdk
+```
 2. Para rodar com o profile `dev` (H2 em memória):
 
 ```bash
-mvn spring-boot:run -Dspring-boot.run.profiles=dev
+./Back-end/gradlew bootRun
 ```
 
 3. Para compilar e gerar o JAR:
-
 ```bash
-mvn clean package
-java -jar target/voyago-backend-0.0.1-SNAPSHOT.jar --spring.profiles.active=prod
+
 ```
 
 Banco de dados e migrations

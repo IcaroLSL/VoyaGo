@@ -20,6 +20,9 @@ repositories {
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    
+    // Suporte para carregar .env automaticamente
+    implementation("me.paulschwarz:spring-dotenv:4.0.0")
 
     // Databases
     runtimeOnly("com.h2database:h2")
