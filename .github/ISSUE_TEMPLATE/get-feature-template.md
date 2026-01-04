@@ -14,7 +14,7 @@ assignees: IcaroLSL, Vittas
 ### Method: GET
 
 
-### URL: https://localhost:8080/v1/[OBJECT]?page=${variavel}&limit=${variavel}&filters=${json_com_campo}
+### URL: https://localhost:8080/v1/[PAGE]/[OBJECT]?page=${variavel}&limit=${variavel}&filters=${json_com_campo}
 
 
 ### The filters field will receive a JSON object containing the filtering fields:
