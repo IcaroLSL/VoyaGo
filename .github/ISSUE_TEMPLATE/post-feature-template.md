@@ -14,7 +14,7 @@ assignees: IcaroLSL, Vittas
 ### Method: POST
 
 
-### URL: https://localhost:8080/v1/[OBJECT]/
+### URL: https://localhost:8080/v1/[PAGE]/[OBJECT]/
 
 
 ### Header:

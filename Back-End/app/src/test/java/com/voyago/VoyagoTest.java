@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class VoyagoTest {
     @Test void appHasAGreeting() {
-        Voyago classUnderTest = new Voyago();
-        assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
+        Voyago voyagoTest = new Voyago();
+        assertNotNull(voyagoTest, "Class should be created");
     }
 }

@@ -3,12 +3,12 @@
  */
 package com.voyago;
 
-public class Voyago {
-    public String getGreeting() {
-        return "Hello World!";
-    }
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+@SpringBootApplication
+public class Voyago {
     public static void main(String[] args) {
-        System.out.println(new Voyago().getGreeting());
+        SpringApplication.run(Voyago.class, args);
     }
 }

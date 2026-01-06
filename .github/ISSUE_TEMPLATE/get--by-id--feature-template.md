@@ -14,7 +14,7 @@ assignees: IcaroLSL, Vittas
 ### Method: GET
 
 
-### URL: https://localhost:8080/v1/[OBJECT]?idOBJECT={idOBJECT}
+### URL: https://localhost:8080/v1/[PAGE]/[OBJECT]?idOBJECT={idOBJECT}
 
 
 ### Header:
