@@ -25,7 +25,6 @@ O back-end do VoyaGo é responsável por:
 
 Execução em desenvolvimento
 ---------------------------
-Assumindo Maven:
 
 1. Instale o java 21 e o gradlew:
 ```bash

@@ -21,11 +21,11 @@ public class ListRoutesController {
     
     @PostConstruct
     public void init() {
-        setRoutes("health");
-        setDescription("Verifica se a API está funcionando");
+        // setRoutes("health");
+        // setDescription("Verifica se a API está funcionando");
         
-        setRoutes("totalRoutes");
-        setDescription("Retorna o total de rotas disponíveis");
+        setRoutes("/v1/user/register/");
+        setDescription("Registra um novo usuário");
     }
 
     public void setRoutes(String route) {
