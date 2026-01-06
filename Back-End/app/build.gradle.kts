@@ -20,6 +20,10 @@ repositories {
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.springframework.security:spring-security-crypto")
+    
+    // BouncyCastle para Argon2 password hashing
+    implementation("org.bouncycastle:bcprov-jdk18on:1.77")
     
     // Suporte para carregar .env automaticamente
     implementation("me.paulschwarz:spring-dotenv:4.0.0")
