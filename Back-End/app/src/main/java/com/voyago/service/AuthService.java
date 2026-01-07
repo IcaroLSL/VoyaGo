@@ -55,7 +55,6 @@ public class AuthService {
 
         return userRepository.findById(generatedId);
     }
-
     public Optional<User> logFailure(Long user_id, InetAddress ip_address, String failure_reason) {
         String sql = "INSERT INTO users (user_id, success, ip_address, failure_reason) VALUES (?, ?, ?, ?) RETURNING id";
         Long generatedId = jdbcTemplate.queryForObject(sql, Long.class, user_id, false, ip_address, failure_reason);
