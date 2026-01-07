@@ -26,10 +26,13 @@ public class ListRoutesController {
         
         setRoutes("/v1/user/register/");
         setDescription("Registra um novo usuário");
+    
+        setRoutes("/v1/user/login/");
+        setDescription("Autentica um usuário existente");
     }
 
     public void setRoutes(String route) {
-        this.routes.add("/" + route);
+        this.routes.add("http://localhost:8080" + route);
     }
     
     public void setDescription(String description) {

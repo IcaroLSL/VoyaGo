@@ -24,13 +24,17 @@ public class AuthService {
     private final Argon2PasswordEncoder passwordEncoder = new Argon2PasswordEncoder(16, 32, 1, 65536, 3);
 
     public Optional<User> authenticate(String username, String password) {
+        // Busca usuário pelo username
         Optional<User> userOpt = userRepository.findByUsername(username);
         
         if (userOpt.isPresent()) {
             User user = userOpt.get();
+            
+            if (user.getStatus_active() == null || !user.getStatus_active()) {
+                return Optional.empty();
+            }
+            
             if (user.getPassword() != null && passwordEncoder.matches(password, user.getPassword())) {
-                // don't expose password
-                // user.setPassword(null);
                 return Optional.of(user);
             }
         }
@@ -39,19 +43,15 @@ public class AuthService {
     }
 
     public Optional<User> register(String name, String username, String password) {
-        // Verifica se username já existe
         if (userRepository.existsByUsername(username)) {
             return Optional.empty();
         }
 
-        // Criptografa a senha com Argon2id
         String hashedPassword = passwordEncoder.encode(password);
 
-        // Insere usando query nativa - banco gera id, role, status_active, dates
         String sql = "INSERT INTO users (name, username, password) VALUES (?, ?, ?) RETURNING id";
         Long generatedId = jdbcTemplate.queryForObject(sql, Long.class, name, username, hashedPassword);
 
-        // Busca o usuário salvo para retornar
         return userRepository.findById(generatedId);
     }
 }
