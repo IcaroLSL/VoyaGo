@@ -8,6 +8,7 @@ import org.springframework.security.crypto.argon2.Argon2PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+import java.net.InetAddress;
 
 @Service
 public class AuthService {
@@ -51,6 +52,19 @@ public class AuthService {
 
         String sql = "INSERT INTO users (name, username, password) VALUES (?, ?, ?) RETURNING id";
         Long generatedId = jdbcTemplate.queryForObject(sql, Long.class, name, username, hashedPassword);
+
+        return userRepository.findById(generatedId);
+    }
+
+    public Optional<User> logFailure(Long user_id, InetAddress ip_address, String failure_reason) {
+        String sql = "INSERT INTO users (user_id, success, ip_address, failure_reason) VALUES (?, ?, ?, ?) RETURNING id";
+        Long generatedId = jdbcTemplate.queryForObject(sql, Long.class, user_id, false, ip_address, failure_reason);
+
+        return userRepository.findById(generatedId);
+    }
+    public Optional<User> logSuccess(Long user_id, InetAddress ip_address) {
+        String sql = "INSERT INTO users (user_id, success, ip_address, failure_reason) VALUES (?, ?, ?, ?) RETURNING id";
+        Long generatedId = jdbcTemplate.queryForObject(sql, Long.class, user_id, true, ip_address, null);
 
         return userRepository.findById(generatedId);
     }
