@@ -2,6 +2,9 @@ package com.voyago.controller;
 
 import com.voyago.model.User;
 import com.voyago.service.AuthService;
+import com.voyago.dtos.login.Request;
+import com.voyago.dtos.login.Response;
+import com.voyago.dtos.login.ErrorResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -48,7 +51,7 @@ public class LoginController {
                     res.token = "TODO";
                     authService.logSuccess(user.getId(), req.ipAddress);
                 } catch (Exception logException) {
-                    if (res.token == null) {
+                    if (res.token.isEmpty()) {
                         authService.logFailure(user.getId(), req.ipAddress, "Token generation failed:" + logException);
                     }
                 }
@@ -66,19 +69,5 @@ public class LoginController {
             authService.logFailure(null, req.ipAddress, e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(error);
         }
-    }
-
-    public static class Request {
-        public String username;
-        public String password;
-        public InetAddress ipAddress;
-    }    
-    public static class Response {
-        public String token;
-        public String name;
-        public Long id;
-    }
-    public static class ErrorResponse {
-        public String message;
     }
 }
